@@ -1,0 +1,30 @@
+schema {
+  query: Query
+  subscription: Subscription
+}
+
+type Point {
+    y: Int!
+    x: Float!
+}
+
+type PointResult {
+    success: Boolean!
+    errors: [String]
+    point: Point
+}
+
+type PointsResult {
+    points: [Point]
+    success: Boolean!
+    errors: [String]
+}
+
+type Query {
+    login(username: String!, password: String! ): String!
+    logout: Boolean
+}
+
+type Subscription {
+    newPoints(id: Int): [Point]
+}
